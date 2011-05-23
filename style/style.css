@@ -1,0 +1,180 @@
+@CHARSET "UTF-8";
+
+body {
+		background-color: #FFFFFF;
+		background-image: url("image/laska.jpg");
+		background-repeat: no-repeat;
+		background-attachment:fixed;
+		background-position:100% 20%;
+	/*	
+		margin-top: 100px;
+		margin-right: 40px;
+		margin-bottom: 10px;
+		margin-left: 70px;
+	*/
+		width:80%;
+		margin-left: 10%;;
+		
+	}
+
+#top
+	{
+		width:100%;
+		height:120px;
+	}
+	
+#mainMenu
+	{
+		width:100%;
+		height:90px;
+		margin-top:40px;
+		text-transform:uppercase;
+		background:silver;
+	}
+	
+#menuCategory
+	{
+		width:100%;
+		height:90px;
+		margin-top:0px;
+		background:navy;
+	}
+	
+#menuItem
+	{
+		width:40px;
+		height:20px;
+		background: red;
+	}	
+
+#center
+	{
+		margin-top:10px;
+		width:100%;
+		text-align:center;
+		height:auto;
+	}
+	
+#outputBox
+	{
+		width: 30%;
+		height:auto;
+		max-width:300;
+		margin-left:35%;
+		margin-top:5px;
+		background-color: #cccccc;
+		box-shadow: 3px 3px 3px #aaaaaa;
+		padding: 15px 15px 15px 0px;			
+	}	
+
+
+	h1 {
+		font-family: arial, verdana, sans-serif;
+		font-size: 200%;
+		color: #ffffff;
+		font-style: italic;
+		
+		width:100%;
+		height:80px;
+		background: black;
+		margin-top:0px;
+		margin-left: 0px;
+	}
+	
+	h2 {
+		background: orange;
+		padding-left:120px;
+		
+		width: 50%;  
+	}
+	
+	#picture {
+		float:left;
+		width: auto;
+	}
+	
+#selecktor{
+	
+	}	
+	
+	/*
+	Jak widzisz, nazwy klas są zawsze poprzedzone kropką. Dzięki znacznikowi SPAN
+	możemy łatwo użyć naszej klasy w kodzie HTML, posługując się właściwością class:
+	*/
+	
+	.niebieski {
+		color: blue
+	}
+
+	/*
+	Łączenie selektorów. Selektory możemy również łączyć ze sobą. Załóżmy, że
+	chcemy, aby tekst umieszczony w kilku znacznikach miał zawsze czerwony kolor:
+	*/
+	
+	 p, a {
+		color: blue;
+		
+
+		
+	}
+	
+	
+	/*
+	Jeżeli więc chcesz przypisać daną właściwość do kilku elementów, to możesz użyć
+	kilku selektorów i oddzielić je przecinkami. Bardziej zaawansowany przykład:
+	
+	Selektor gwiazdki *. Odnosi się on do absolutnie wszystkich znaczników:
+	*/
+	
+	
+	
+	#pierwszy, .niebieski, h1
+	{
+	
+	}
+	
+	/*
+	elementem wpływającym na ważność reguł jest rodzaj selektora. Zasada jest
+	prosta - im dokładniejszy selektor, tym ważniejszą tworzy regułę. Najmniej precyzyjny,
+	a przy tym najmniej istotny jest selektor * - odnoszący się do wszystkich tagów.
+	Następne w kolejności są selektory elementu, jak div, czy ul. Po nich występują selektory
+	atrybutów, czy pseudoklas, o których będziemy mówić w dalszej części książki.
+	Najważniejszym selektorem jest selektor identyfikatora.
+	
+	Podsumujmy ważność poznanych dotąd selektorów. Przedstawmy je w kolejności od
+	najmniej znaczącego:
+		selektor gwiazdki - *
+		selektor elementu - p, div, h1, form
+		selektor klasy - .niebieski, .trzeci, .nowy
+		selektor identyfikatora - #naglowek, #menu, #wstep
+		zwiększanie ważności - !important
+	*/
+	
+	a {
+		color: blue;
+	}
+ 
+	a.whitewine {
+		color: #FFBB00;
+	}
+ 
+	a.redwine {
+		color: #800000;
+	}
+	
+	#c-1{
+		color: #567123
+	}
+	
+	box1 {
+		width: 50px;
+		height: 50px;
+		background:blue;
+		position: relative;
+		left:700px;
+
+		 
+	}
+	
+
+	
