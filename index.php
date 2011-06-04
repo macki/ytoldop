@@ -57,15 +57,17 @@
 			<?php
 				if($_SESSION['podloty_loggedin'] == 'ok')
 				{
-					echo "Jesteś zalogowany jako ".$_SESSION['userNick'];
+					echo "Jestes� zalogowany jako ".$_SESSION['userNick'];
 					echo " <a href=\"index.php?page=logout\">Wyloguj się</a>";
 				}
 				else
+				{
 					echo" <a href=\"index.php?page=registration\">Rejestracja</a> | <a href=\"index.php?page=login\">Logowanie</a>";
+				}
 			?>
 			</div>
 			
-			<div style="border: solid 1px red; margin-top: 10px; min-height: 100px;">
+			<div style="border: solid 1px red; margin-top: 10px; min-height: 120px;">
 				
 				<?php
 				
@@ -73,11 +75,12 @@
 										'registration',
 										'login',
 										'logout');
-			
+					
+					//-- Navigate to proper login/register site
 					if(in_array($_GET['page'], $allowed_id))
 					{
 						if(file_exists("Src/View/".$_GET['page'].".php"))
-						{
+						{	
 							include("Src/View/".$_GET['page'].".php");
 						}
 						else
@@ -85,7 +88,7 @@
 					}
 					else
 					{
-						include("Src/View/home.php");
+							echo "<a href='index.php' >"; 
 					}
 				
 				?>		
