@@ -13,7 +13,8 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 		
 		if(empty($_POST['nick']) || empty($_POST['pass']) || !validdata($_POST['nick']))
 		{
-				echo "<p><b>BŁĄD: Podane dane są nieprawidłowe.</b></p>";
+				echo "<br>";
+				echo "<p><b>Blad: Podane dane sa nieprawidlowe.</b></p>";
 		}
 		else
 		{
@@ -29,8 +30,8 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 			}
 			else
 			{
-				echo "<p>Błąd logowania.</p>";
-				echo "<p>Możliwe przyczyny: <br />-podane dane są niepoprawne,<br />-konto nie zostało aktywowane,<br />-konto zostało zablokowane przez administratora.</p>";
+				echo "<p>blad logowania.</p>";
+				echo "<p>Mozliwe przyczyny: <br />-podane dane są niepoprawne,<br />-konto nie zostało aktywowane,<br />-konto zostało zablokowane przez administratora.</p>";
 			}
 		}
 	}
@@ -39,19 +40,17 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 	// *******************************************
 	else
 	{
+		
 	?>
 	
-	Zaloguj się:
+	.
 	
 	<form id="loginForm" name="loginForm" method="post" action="index.php?page=login">
-
 	<table>
-
 		<tr><td>Nick: </td><td><input type="text" name="nick" /></td></tr>
 		<tr><td>Hasło: </td><td><input type="password" name="pass" /></td></tr>
 		<input type="hidden" name="logowanie_krok2" value="ok" />
 		<tr><td colspan="2"><input type="submit" name="submit" value="Zaloguj" /></td><td></td></tr>
-
 	</table>
 
 	</form>

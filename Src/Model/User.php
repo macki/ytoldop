@@ -91,7 +91,9 @@ class User
 	
 	public function IsAuthenticated()
 	{
-		$result = DBoperationBasic::ExecuteScalar("select count(*) from users where lower(Nick) = lower('".$this->getNick()."') and Password = '".$this->getPassword()."' and Active='1' and Banned='0'");
+		$result = DBoperationBasic::ExecuteScalar("select count(*) from users where lower(Nick) = lower('".$this->getNick()."') and Password = '".$this->getPassword()."' and Active = 1 and Banned = 0 ");
+
+		//echo "select count(*) from users where lower(Nick) = lower('".$this->getNick()."') and Password = '".$this->getPassword()."' and Active = 1 and Banned = 0 ";
 		
 		if($result !== false && $result > 0)
 			return true;
