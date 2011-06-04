@@ -3,7 +3,7 @@
 	class DBoperationBasic
 	{
 		//-- database parameters 
-		public static  $DBname = "podloty";		
+		public static  $DBname = "podloty2";		
 		public static  $connection;
 		public static  $ConnectionSuccesfull  = -1;
 		public static  $Result;

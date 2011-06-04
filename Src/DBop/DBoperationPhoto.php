@@ -63,14 +63,14 @@
 		{
 			mysql_select_db(DBoperationBasic::$DBname, DBoperationBasic::$connection);
 			
-			$result = DBoperationPhoto::FilterData($modeCategory,$modeFilter);
+			$result = DBoperationPhoto::FilterData($modeCategory, $modeFilter);
 			
 			ShowPhoto::DisplayPhoto($result);
 					
 		}
 		
 		//-- Filtering Data [Category, Filters]
-		private function FilterData($modeCategory,$modeFilter)
+		private static function FilterData($modeCategory,$modeFilter)
 		{
 			switch ($modeFilter)
 			{
