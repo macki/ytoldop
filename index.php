@@ -1,7 +1,10 @@
 <?php ob_start(); ?>
 <?php
+	error_reporting(E_ALL & ~E_NOTICE);
 	session_start();
-
+	$_SESSION['notRefresh'] = true;
+	
+	require_once("Src/Model/User.php");
    	include_once 'Src/DBop/DBoperationPhoto.php';
 	include_once 'Src/DBop/DBoperationBasic.php';
 	include_once 'Src/DBop/DBoperationComment.php';
@@ -48,6 +51,46 @@
 			<div id="top">
 				<img src='Source/top.png' width=100% align='left'>
 			</div>
+			
+		<!-- Login/Register  -->
+			<div style="height: 16px;">
+			<?php
+				if($_SESSION['podloty_loggedin'] == 'ok')
+				{
+					echo "Jesteś zalogowany jako ".$_SESSION['userNick'];
+					echo " <a href=\"index.php?page=logout\">Wyloguj się</a>";
+				}
+				else
+					echo" <a href=\"index.php?page=registration\">Rejestracja</a> | <a href=\"index.php?page=login\">Logowanie</a>";
+			?>
+			</div>
+			
+			<div style="border: solid 1px red; margin-top: 10px; min-height: 100px;">
+				
+				<?php
+				
+					$allowed_id = Array('home',
+										'registration',
+										'login',
+										'logout');
+			
+					if(in_array($_GET['page'], $allowed_id))
+					{
+						if(file_exists("Src/View/".$_GET['page'].".php"))
+						{
+							include("Src/View/".$_GET['page'].".php");
+						}
+						else
+							echo("Podana podstrona nie istnieje. Powiadom administratora.");
+					}
+					else
+					{
+						include("Src/View/home.php");
+					}
+				
+				?>		
+			</div>
+		
 		
 		<!-- Main Menu  -->
 			<div id ="mainMenu">
@@ -64,6 +107,7 @@
 			</div>
 		
 		<fb:like width="200" show_faces="no" href="dasdas"></fb:like>
+		
 			
 	</body>
 			
