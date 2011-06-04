@@ -27,6 +27,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
 <title>Podloty</title>
 <link rel="stylesheet" type="text/css" href="style/style.css" />
+
 	
 	<body>
 	
@@ -62,11 +63,8 @@
 				 ?>
 			</div>
 		
-
 		<fb:like width="200" show_faces="no" href="dasdas"></fb:like>
-		
-
-		
+			
 	</body>
 			
 </head>
@@ -74,73 +72,78 @@
 
 <?php 
 
-	
-	//-- navigate to current page
 	CheckCurrentPage();
 
-
-	//TODO:: fest chujowe to jest trzeba to jakos inaczej
-	//-- ction NON-PHOTO CLICK
-	if($_GET['photoUrl'] == '')
-	{
-		DBoperationPhoto::GetPhotos($_GET['category'],$_GET['filter']);
-		
-	}
-	else 
-	{	
-		DBoperationComment::GetComment();
-		
-	}	
-		
-	
-	//DBoperationPhoto::GetPhotos('all');
-	//echo "<top>s</top>";
-	//echo "xFile Project";
-
-	ob_end_flush();
+	DisplayPhoto();
 	
 	
+	//-- navigate to diffrent page
 	function CheckCurrentPage()
 	{
-		switch($_GET['page'])
+		if (isset($_GET['page']))
 		{
-			case 'idole':
+			switch($_GET['page'])
 			{
-				$idole = new idoleHTMLview();
+				case 'idole':
+				{
+					$idole = new idoleHTMLview();
+				}
+				break;
+				case 'konkursy':
+				{
+					$konkursy= new KonkursyHTMLview();
+				}
+				break;
+				case 'zasady':
+				{
+					$zasady = new ZasadyHTMLview();
+				}
+				break;
+				case 'dodaj':
+				{
+					$dodaj= new DodajHTMLview();
+				}
+				break;
+				case 'radar':
+				{
+					$radar = new RadarHTMLview();
+				}
+				break;
+				case 'liga':
+				{
+					$liga = new LigaHTMLview();
+				}
+				case 'lasery':
+				{
+					$Lasery = new LaseryHTMLview();
+				}
+				break;
 			}
-			break;
-			case 'konkursy':
-			{
-				$konkursy= new KonkursyHTMLview();
-			}
-			break;
-			case 'zasady':
-			{
-				$zasady = new ZasadyHTMLview();
-			}
-			break;
-			case 'dodaj':
-			{
-				$dodaj= new DodajHTMLview();
-			}
-			break;
-			case 'radar':
-			{
-				$radar = new RadarHTMLview();
-			}
-			break;
-			case 'liga':
-			{
-				$liga = new LigaHTMLview();
-			}
-			case 'lasery':
-			{
-				$Lasery = new LaseryHTMLview();
-			}
-			break;
+			
 		}
-		
 	}
 	
+	//-- Displaying photos
+	function DisplayPhoto()
+	{
+		//if($_GET['photoUrl'] == '')
+		{
+			if(isset($_GET['category']) && isset($_GET['filter']))
+			{
+				DBoperationPhoto::GetPhotos($_GET['category'],$_GET['filter']);
+			}
+			else 
+			{
+				DBoperationPhoto::GetPhotos('','');
+			}		
+		}
+		
+		//else 
+		//{	
+			//DBoperationComment::GetComment();
+		//}			
+	}
+	
+	ob_end_flush();
 ?>
 
