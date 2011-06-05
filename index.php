@@ -18,10 +18,12 @@
 	include_once 'Src/HTMLview/IdoleHTMLview.php';
 	include_once 'Src/HTMLview/KonkursyHTMLview.php';
 	include_once 'Src/HTMLview/ZasadyHTMLview.php';
-	include_once 'Src/HTMLview/DodajHTMLview.php';
 	include_once 'Src/HTMLview/RadarHTMLview.php';
 	include_once 'Src/HTMLview/LigaHTMLview.php';
 	include_once 'Src/HTMLview/LaseryHTMLview.php';
+	include_once 'Src/HTMLview/DodajHTMLview.php'
+	
+	
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -119,6 +121,7 @@
 
 <?php 
 
+
 	CheckCurrentPage();
 
 	DisplayPhoto();
@@ -148,7 +151,8 @@
 				break;
 				case 'dodaj':
 				{
-					$dodaj= new DodajHTMLview();
+					//$dodaj= new DodajHTMLview(); 
+					header("Location: Src/util/DodajFotke/app/index.php");
 				}
 				break;
 				case 'radar':
@@ -191,6 +195,6 @@
 		//}			
 	}
 	
-	ob_end_flush();
+	//ob_end_flush();
 ?>
 
