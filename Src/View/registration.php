@@ -87,6 +87,12 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 							{
 								DBoperationBasic::LogError($php_errormsg);
 							}*/
+							
+							//TODO przeniesc do walidacji
+							//-- create folder for user
+							mkdir("././Photos/".$newUser->getNick(), 777);
+							mkdir("././Photos/".$newUser->getNick()."/thumbnails/", 777);  
+							
 							echo "<br>";
 							echo "TRESC MAILA: ".$tosend;
 							echo "<br>";
@@ -118,8 +124,11 @@ if($_SESSION['podloty_loggedin'] != 'ok')
 		$newUser->setNick($_GET['u']);
 		$newUser->setKey($_GET['k']);
 		
+				
 		if($newUser->Activate())
 		{
+			//TODO przerzucic tutaj tworzenie folderu
+			
 			echo "<p>Aktywacja przebiega‚a pomys›lnie. <b>Teraz mozesz sie zalogowaÄ‡</b>.</p>";
 		}
 		else
